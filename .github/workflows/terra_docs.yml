@@ -76,6 +76,7 @@ jobs:
       with:
         ref: ${{ github.event.pull_request.head.ref }}
         GITHUB_TOKEN: ${{ github.token }}
+        commit_message: "Adding badges for release: ${{ env.tag }}"
         badges: |
           [
             {
