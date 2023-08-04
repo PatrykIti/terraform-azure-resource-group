@@ -106,6 +106,7 @@ jobs:
         signoff: false
     - name: Merge
       uses: KeisukeYamashita/auto-pull-request-merge@v1.0.6
+      if: ${{ contains(github.event.pull_request.labels.*.name, 'changelog')}}
       with:
         labels: changelog
         pullRequestNumber: ${{ steps.pr.outputs.pull-request-number }}
