@@ -17,6 +17,7 @@ PR Name: <type>:<description>
 2. If the label is "feat" then MINOR version is incremented.
 3. If the label is "fix" then the PATCH version is incremented.
 4. If the label is doc/refactor/chore, then nothing is incremented and no release is made.
+5. Label 'changelog' is reserved for "Automated PRs"
 
 Example commits:
 ```
