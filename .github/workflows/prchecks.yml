@@ -11,5 +11,5 @@ jobs:
           fetch-depth: 1
       - uses: docker://agilepathway/pull-request-label-checker:latest
         with:
-          one_of: BREAKING CHANGE,feat,fix,chore,docs,refactor
+          one_of: BREAKING CHANGE,feat,fix,chore,docs,refactor,changelog
           repo_token: ${{ github.token }}

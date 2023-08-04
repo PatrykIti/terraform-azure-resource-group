@@ -9,6 +9,7 @@ permissions:
 jobs:
   terraform-docs:
     name: Generate Terraform Documenation
+    if: ${{ contains(github.event.pull_request.labels.*.name, 'feat') || contains(github.event.pull_request.labels.*.name, 'BREAKING CHANGE') || contains(github.event.pull_request.labels.*.name, 'fix')}}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -28,6 +29,7 @@ jobs:
   generate-badges:
     name: Generate Badges
     runs-on: ubuntu-latest 
+    if: ${{ contains(github.event.pull_request.labels.*.name, 'feat') || contains(github.event.pull_request.labels.*.name, 'BREAKING CHANGE') || contains(github.event.pull_request.labels.*.name, 'fix')}}
     needs:
       - terraform-docs
     steps:
@@ -92,39 +94,3 @@ jobs:
               "link": "https://github.com/PatrykIti/testing-gitactions/releases/tag/${{ env.tag }}"
             }
           ]
-  generate-changelog:
-    name: Generate Changelog
-    if: ${{ !contains(github.event.pull_request.labels.*.name, 'docs') || !contains(github.event.pull_request.labels.*.name, 'refactor') || !contains(github.event.pull_request.labels.*.name, 'chore')}}
-    runs-on: ubuntu-latest 
-    needs:
-      - terraform-docs
-      - generate-badges
-    steps:
-    - uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
-    - name: 'Get current tag'
-      id: currenttag
-      uses: "WyriHaximus/github-action-get-previous-tag@v1"
-      env:
-        GITHUB_TOKEN: ${{ github.TOKEN }}
-    - name: Generate Changelog
-      uses: heinrichreimer/github-changelog-generator-action@v2.3
-      id: Changelog
-      with:
-        token: ${{ github.token }}
-    - name: Commit files
-      env:
-        CI_USER: "github-actions"
-        CI_EMAIL: "41898282+github-actions[bot]@users.noreply.github.com"
-      run: |
-        git config --local user.email "$CI_EMAIL"
-        git config --local user.name "$CI_USER"
-        git add CHANGELOG.md && git commit -m 'Changelog for Release ${{ steps.currenttag.outputs.tag }}' && echo "push=true" >> $GITHUB_ENV || echo "No chanages to commit to CHANGELOG.md"
-    - name: Push changes
-      if: env.push == 'true'
-      env:
-        CI_USER: "github-actions"
-        CI_TOKEN: ${{ github.token }}
-      run: |
-        git push "https://$CI_USER:$CI_TOKEN@github.com/$GITHUB_REPOSITORY.git" ${{ github.event.pull_request.head.ref }}
