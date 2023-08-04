@@ -1,5 +1,13 @@
 # Changelog
 
+## [Unreleased](https://github.com/PatrykIti/terraform-azurerm-resource-group-1/tree/HEAD)
+
+[Full Changelog](https://github.com/PatrykIti/terraform-azurerm-resource-group-1/compare/v1.0.0...HEAD)
+
+**Merged pull requests:**
+
+- Docs: Adding Funding.yml and correcting one workflow [\#3](https://github.com/PatrykIti/terraform-azurerm-resource-group-1/pull/3) ([PatrykIti](https://github.com/PatrykIti))
+
 ## [v1.0.0](https://github.com/PatrykIti/terraform-azurerm-resource-group-1/tree/v1.0.0) (2023-08-04)
 
 [Full Changelog](https://github.com/PatrykIti/terraform-azurerm-resource-group-1/compare/c9a1de0c99d3edab22c90cee55a9f43a4e1b7a2b...v1.0.0)
