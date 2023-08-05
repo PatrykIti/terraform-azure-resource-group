@@ -6,6 +6,7 @@
 
 **Merged pull requests:**
 
+- Docs: Correcting examples [\#5](https://github.com/PatrykIti/terraform-azurerm-resource-group-1/pull/5) ([PatrykIti](https://github.com/PatrykIti))
 - Docs: Adding Funding.yml and correcting one workflow [\#3](https://github.com/PatrykIti/terraform-azurerm-resource-group-1/pull/3) ([PatrykIti](https://github.com/PatrykIti))
 
 ## [v1.0.0](https://github.com/PatrykIti/terraform-azurerm-resource-group-1/tree/v1.0.0) (2023-08-04)
