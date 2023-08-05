@@ -9,7 +9,7 @@ permissions:
 jobs:
   terraform-docs:
     name: Generate Terraform Documenation
-    if: ${{ contains(github.event.pull_request.labels.*.name, 'feat') || contains(github.event.pull_request.labels.*.name, 'BREAKING CHANGE') || contains(github.event.pull_request.labels.*.name, 'fix')}}
+    if: ${{ contains(github.event.pull_request.labels.*.name, 'feat') || contains(github.event.pull_request.labels.*.name, 'BREAKING CHANGE') || contains(github.event.pull_request.labels.*.name, 'fix') || contains(github.event.pull_request.labels.*.name, 'docs') || contains(github.event.pull_request.labels.*.name, 'refactor') || contains(github.event.pull_request.labels.*.name, 'chore')}}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3

@@ -3,7 +3,7 @@ locals{
 }
 
 module "rg_inf" {
-    source = "https://dev.azure.com/PC-ITI/ECW%20-%20Engine%20Car%20Watcher/_git/terraform-azurerm-resource-group?ref=v1.0.0"
+    source = "git::https://github.com/PatrykIti/terraform-azurerm-resource-group-1.git?ref=v1.0.0"
 
     name = join("-",[local.env_prefix, "inf"])
     tags = {

@@ -38,7 +38,7 @@ locals{
 }
 
 module "rg_inf" {
-    source = "https://dev.azure.com/PC-ITI/ECW%20-%20Engine%20Car%20Watcher/_git/terraform-azurerm-resource-group?ref=v1.0.0"
+    source = "git::https://github.com/PatrykIti/terraform-azurerm-resource-group-1.git?ref=v1.0.0"
 
     name = join("-",[local.env_prefix, "inf"])
     tags = {
@@ -65,7 +65,7 @@ locals{
 
 #Primary Region
 module "rg_inf_primary" {
-    source = "https://dev.azure.com/PC-ITI/ECW%20-%20Engine%20Car%20Watcher/_git/terraform-azurerm-resource-group?ref=v1.0.0"
+    source = "git::https://github.com/PatrykIti/terraform-azurerm-resource-group-1.git?ref=v1.0.0"
 
     name      = join("-",[local.env_prefix_primary, "inf"])
     location  = local.locationPrimary
@@ -79,7 +79,7 @@ module "rg_inf_primary" {
 }
 #Secondary Region
 module "rg_inf_secondary" {
-    source = "https://dev.azure.com/PC-ITI/ECW%20-%20Engine%20Car%20Watcher/_git/terraform-azurerm-resource-group?ref=v1.0.0"
+    source = "git::https://github.com/PatrykIti/terraform-azurerm-resource-group-1.git?ref=v1.0.0"
 
     name      = join("-",[local.env_prefix_secondary, "inf"])
     location  = local.locationSecondary
@@ -135,7 +135,7 @@ locals{
 
 #Primary Region
 module "rg_primary" {
-    source = "https://dev.azure.com/PC-ITI/ECW%20-%20Engine%20Car%20Watcher/_git/terraform-azurerm-resource-group?ref=v1.0.0"
+    source = "git::https://github.com/PatrykIti/terraform-azurerm-resource-group-1.git?ref=v1.0.0"
 
     for_each = {for rg in local.list_of_resource_groups : rg => rg}
 
@@ -151,7 +151,7 @@ module "rg_primary" {
 }
 #Secondary Region
 module "rg_secondary" {
-    source = "https://dev.azure.com/PC-ITI/ECW%20-%20Engine%20Car%20Watcher/_git/terraform-azurerm-resource-group?ref=v1.0.0"
+    source = "git::https://github.com/PatrykIti/terraform-azurerm-resource-group-1.git?ref=v1.0.0"
     
     for_each = {for rg in local.list_of_resource_groups : rg => rg}
 
