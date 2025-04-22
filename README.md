@@ -4,15 +4,9 @@
 [![Language](https://img.shields.io/badge/language-HCL-purple.svg?style=flat-square)](https://www.hashicorp.org)
 [![Ver. v1.0.0](https://img.shields.io/badge/Ver.-v1.0.0-brightgreen.svg?style=flat-square)](https://github.com/PatrykIti/testing-gitactions/releases/tag/v1.0.0)
 <!-- [END BADGES] -->
-<h1 align="center">Terraform module for managing Azure Resource Groups (1 approach)</h1>
-
-<p>This is the first approach to this module and it is creating a little 'stress' in your TFVARS file when executing module, because you need to provide more variables for configuration. On the other hand, on the module level everything is as simple as possible.</p>
+<h1 align="center">Terraform module for managing Azure Resource Groups</h1>
 
 <p>All modules were tested on my private Azure subscription before merged here, so if you encountered some problems than please check twice your configuration ☺️ </p>
-
-<p>You can look into another repository for <a href ="https://github.com/PatrykIti/terraform-azurerm-resource-group-2">terraform-azurerm-resource-group-2</a> module with different approach than it is here.</p>
-
-<p>Another respository to look into is about <a href = "https://github.com/PatrykIti/terraform-environment-configurations/tree/main/azurerm-resource-group-1">executing module via Azure Pipelines withing environment configuration</a>, together with backend configuration etc.</p>
 
 <p>If you want to keep an eye on current changes made to modules than please look into <a href="https://github.com/users/PatrykIti/projects/1">Project section -> Terraform modules for Azure</a></p>
 <!-- BEGIN_TF_DOCS -->
