@@ -11,9 +11,9 @@ locals{
 
 #Primary Region
 module "rg_inf_primary" {
-    source = "git::https://github.com/PatrykIti/terraform-azurerm-resource-group-1.git?ref=v1.0.0"
+    source = "git::https://github.com/PatrykIti/terraform-azurerm-resource-group-1.git?ref=v1.0.1"
 
-    name      = join("-",[local.env_prefix_primary, "inf"])
+    name      = join("-",[local.env_prefix_primary, "sa"])
     location  = local.locationPrimary
     tags      = {
       environment               = "dev1"
@@ -25,7 +25,7 @@ module "rg_inf_primary" {
 }
 #Secondary Region
 module "rg_inf_secondary" {
-    source = "git::https://github.com/PatrykIti/terraform-azurerm-resource-group-1.git?ref=v1.0.0"
+    source = "git::https://github.com/PatrykIti/terraform-azurerm-resource-group-1.git?ref=v1.0.1"
 
     name      = join("-",[local.env_prefix_secondary, "inf"])
     location  = local.locationSecondary
