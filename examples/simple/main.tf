@@ -3,7 +3,7 @@ locals{
 }
 
 module "rg_inf" {
-    source = "git::https://github.com/PatrykIti/terraform-azurerm-resource-group-1.git?ref=v1.0.0"
+    source = "git::https://github.com/PatrykIti/terraform-azurerm-resource-group-1.git?ref=v1.0.1"
 
     name = join("-",[local.env_prefix, "inf"])
     tags = {

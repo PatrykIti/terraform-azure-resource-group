@@ -1,8 +1,8 @@
 <!-- [START BADGES] -->
 <!-- Please keep comment here to allow auto update -->
-[![license GPL-3.0](https://img.shields.io/github/license/PatrykIti/terraform-azurerm-resource-group-1?style=flat-square)](https://github.com/PatrykIti/terraform-azurerm-resource-group-1/blob/main/LICENSE)
+[![license GPL-3.0](https://img.shields.io/github/license/PatrykIti/terraform-azure-resource-group?style=flat-square)](https://github.com/PatrykIti/terraform-azure-resource-group/blob/main/LICENSE)
 [![Language](https://img.shields.io/badge/language-HCL-purple.svg?style=flat-square)](https://www.hashicorp.org)
-[![Ver. v1.0.0](https://img.shields.io/badge/Ver.-v1.0.0-brightgreen.svg?style=flat-square)](https://github.com/PatrykIti/testing-gitactions/releases/tag/v1.0.0)
+[![Ver. v0.0.1](https://img.shields.io/badge/Ver.-v0.0.1-brightgreen.svg?style=flat-square)](https://github.com/PatrykIti/testing-gitactions/releases/tag/v0.0.1)
 <!-- [END BADGES] -->
 <h1 align="center">Terraform module for managing Azure Resource Groups</h1>
 
@@ -14,8 +14,8 @@
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.0 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >= 3.58.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.11.2 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | <= 4.26.0 |
 
 ## Resources
 
@@ -32,7 +32,7 @@ locals{
 }
 
 module "rg_inf" {
-    source = "git::https://github.com/PatrykIti/terraform-azurerm-resource-group-1.git?ref=v1.0.0"
+    source = "git::https://github.com/PatrykIti/terraform-azurerm-resource-group-1.git?ref=v1.0.1"
 
     name = join("-",[local.env_prefix, "inf"])
     tags = {
@@ -59,9 +59,9 @@ locals{
 
 #Primary Region
 module "rg_inf_primary" {
-    source = "git::https://github.com/PatrykIti/terraform-azurerm-resource-group-1.git?ref=v1.0.0"
+    source = "git::https://github.com/PatrykIti/terraform-azurerm-resource-group-1.git?ref=v1.0.1"
 
-    name      = join("-",[local.env_prefix_primary, "inf"])
+    name      = join("-",[local.env_prefix_primary, "sa"])
     location  = local.locationPrimary
     tags      = {
       environment               = "dev1"
@@ -73,7 +73,7 @@ module "rg_inf_primary" {
 }
 #Secondary Region
 module "rg_inf_secondary" {
-    source = "git::https://github.com/PatrykIti/terraform-azurerm-resource-group-1.git?ref=v1.0.0"
+    source = "git::https://github.com/PatrykIti/terraform-azurerm-resource-group-1.git?ref=v1.0.1"
 
     name      = join("-",[local.env_prefix_secondary, "inf"])
     location  = local.locationSecondary
@@ -129,7 +129,7 @@ locals{
 
 #Primary Region
 module "rg_primary" {
-    source = "git::https://github.com/PatrykIti/terraform-azurerm-resource-group-1.git?ref=v1.0.0"
+    source = "git::https://github.com/PatrykIti/terraform-azurerm-resource-group-1.git?ref=v1.0.1"
 
     for_each = {for rg in local.list_of_resource_groups : rg => rg}
 
@@ -145,7 +145,7 @@ module "rg_primary" {
 }
 #Secondary Region
 module "rg_secondary" {
-    source = "git::https://github.com/PatrykIti/terraform-azurerm-resource-group-1.git?ref=v1.0.0"
+    source = "git::https://github.com/PatrykIti/terraform-azurerm-resource-group-1.git?ref=v1.0.1"
     
     for_each = {for rg in local.list_of_resource_groups : rg => rg}
 
